@@ -1,0 +1,5 @@
+# Police Brutality Report
+## Introduction
+The police in the United Stated have been abusing their power and responsibilities to serve us. Instead year after year, we hear that people are being killed by them and it tends to be people of color specifically blacks. We decided to look into three datasets, the first being [police brutality]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv"), the second one [killings by police department]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv"), and lastly [killings by state]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20State-Table%201.csv"). With these we will find out the deaths per year, races targeted, and locations it happened.
+
+## Summary
