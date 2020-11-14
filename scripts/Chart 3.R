@@ -22,7 +22,7 @@ deaths_per_year2<- as.data.frame(table(years))
 # groups the year and deaths of that year as an array
 # plots the deaths per year in a line graph 
 a <- table(years)
-plot(a, 
+chart3 <- plot(a, 
      type="o",
      col = "blue",
      main = "police brutality: YEAR vs. DEATHS", 
