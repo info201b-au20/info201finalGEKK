@@ -20,7 +20,7 @@ killings_df1 <- killings_df1 %>%
 
 
 #Chart 2: Total deaths/kills for each race
-ggplot(killings_df1, aes(x = factor(1), y=total_deaths,fill=races))+
+chart_2 <- ggplot(killings_df1, aes(x = factor(1), y=total_deaths,fill=races))+
   geom_col(position = 'stack', 
            show.legend = T) +
   coord_polar(theta = "y") +
