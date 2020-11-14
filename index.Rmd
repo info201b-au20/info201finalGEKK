@@ -11,25 +11,34 @@ source("analysis.R")
 ## Introduction
 The police in the United Stated have been abusing their power and responsibilities to serve us. Instead year after year, we hear that people are being killed by them and it tends to be people of color specifically blacks. We decided to look into three datasets, the first being [police brutality]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv"), the second one [killings by police department]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv"), and lastly [killings by state]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20State-Table%201.csv"). With these we will find out the deaths per year, races targeted, and locations it happened.
 
-```{r cars}
-summary(cars)
+### Summary
+The highest average annual homicide rate in a police department was 17.9 per 1M population. 
+The highest average annual homicide rate for black people in a police department was 71.5 per 1M population.The city with the highest violent crime rate was Detroit. THe city with the highest estimated average annual arrests was New York City. The nationwide average for police killings was 7626 persons.
+
+
+### Chart 1: Police Homicide Rate vs. Violent Crime Rate in Random Major U.S. Cities, 2013-2018
+The purpose of this chart is to see the comparison between average rates of violent
+crimes and average annual rates of police homicide in populated U.S. cities. The average violent crime rate per 1k population is represented in blue and the average annual police killings per 1M population is represented in pink.
+This chart  reveals where there are high and low police homicide rates in the U.S. Through observing, we see that cities like Memphis and Washington have high violent crime rates, but low police homicide rates. However, cities like Phoenix and Oklahoma City have high police homicide rates, but low violent crime rates. This disparity of values reveals that the levels of violent crimes in the U.S. do not determine rates of police violence.
+
+```{r, echo=FALSE}
+chart1
 ```
 
-## Including Plots
+#### Chart 2: Total Deaths of Individuals by Race
+The purpose of this chart is to see the total deaths or killings of each individual in each race from police brutality. This shows the number of people in each race that has been killed in proportion to other races. From the order of least to most killings by police, Native Americans had the lowest people killed as 111 shows up in light blue. Second comes the Asian people, with 120 killings shows up as red. Third comes the unknown race as dark blue as 641 people killed. Fourth comes Hispanic people with 1338 people killed. Fifth comes Black people with 1957 police killings. Then lastly, comes white people with 3417 people killed.
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-chart1
+```{r, echo=FALSE}
 chart2
-print("To be able to get a visual of the growth or decrease in the past decade, we grabbed all the deaths in a given year and sorted it out. In the line graph below we can see that since 2013 there have been a consistent amount of deaths by police reaching over 1000. We noticed that in 2020 there were the least amount but take into consideration that the year is not over.")
+```
+
+#### Chart 3: Police Homicide Over time
+To be able to get a visual of the growth or decrease in the past decade, we grabbed all the deaths in a given year and sorted it out. In the line graph below we can see that since 2013 there have been a consistent amount of deaths by police reaching over 1000. We noticed that in 2020 there were the least amount but take into consideration that the year is not over.
+
+```{r, echo=FALSE}
 plot(a, type="o",
      col = "blue",
      main = "police brutality: YEAR vs. DEATHS", 
      xlab = "Year",
      ylab = "Deaths by Cops")
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
