@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Police Brutality Report"
 output: html_document
 ---
 
@@ -7,11 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Introduction
+The police in the United Stated have been abusing their power and responsibilities to serve us. Instead year after year, we hear that people are being killed by them and it tends to be people of color specifically blacks. We decided to look into three datasets, the first being [police brutality]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv"), the second one [killings by police department]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv"), and lastly [killings by state]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20State-Table%201.csv"). With these we will find out the deaths per year, races targeted, and locations it happened.
 
 ```{r cars}
 summary(cars)
