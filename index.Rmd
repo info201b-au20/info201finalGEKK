@@ -3,22 +3,28 @@ title: "Police Brutality Report"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("analysis.R")
+```
+
 ## Introduction
 The police in the United Stated have been abusing their power and responsibilities to serve us. Instead year after year, we hear that people are being killed by them and it tends to be people of color specifically blacks. We decided to look into three datasets, the first being [police brutality]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv"), the second one [killings by police department]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv"), and lastly [killings by state]("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20State-Table%201.csv"). With these we will find out the deaths per year, races targeted, and locations it happened.
 
-
-```{r echo = FALSE}
-source("Chart 1.R")
-chart_1
+```{r cars}
+summary(cars)
 ```
 
-```{r echo = FALSE}
-source("Chart 2.R")
-chart_2
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+chart1
+chart2
+a
 ```
 
-```{r echo = FALSE}
-source("Chart 3.R")
-chart_2
-```
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
