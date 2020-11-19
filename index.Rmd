@@ -21,12 +21,12 @@ The purpose of this chart is to see the comparison between average rates of viol
 crimes and average annual rates of police homicide in populated U.S. cities. The average violent crime rate per 1k population is represented in blue and the average annual police killings per 1M population is represented in pink.
 This chart  reveals where there are high and low police homicide rates in the U.S. Through observing, we see that cities like Memphis and Washington have high violent crime rates, but low police homicide rates. However, cities like Phoenix and Oklahoma City have high police homicide rates, but low violent crime rates. This disparity of values reveals that the levels of violent crimes in the U.S. do not determine rates of police violence.
 
-```{r, echo=FALSE}
+```{r, fig.height = 15, fig.width = 15, fig.allign = "center", echo=FALSE}
 chart1
 ```
 
 #### Chart 2: Total Deaths of Individuals by Race
-The purpose of this chart is to see the total deaths or killings of each individual in each race from police brutality. This shows the number of people in each race that has been killed in proportion to other races. From the order of least to most killings by police, Native Americans had the lowest people killed as 111 shows up in light blue. Second comes the Asian people, with 120 killings shows up as red. Third comes the unknown race as dark blue as 641 people killed. Fourth comes Hispanic people with 1338 people killed. Fifth comes Black people with 1957 police killings. Then lastly, comes white people with 3417 people killed.
+The purpose of this chart is to see the total deaths or killings of each individual in each race from police brutality shown in random cities in 2013 - 2018. This shows the number of people in each race that has been killed in proportion to other races. From the order of least to most killings by police, Native Americans had the lowest people killed as 111 shows up in light blue. Second comes the Asian people, with 120 killings shows up as red. Third comes the unknown race as dark blue as 641 people killed. Fourth comes Hispanic people with 1338 people killed. Fifth comes Black people with 1957 police killings. Then lastly, comes white people with 3417 people killed.
 
 ```{r, echo=FALSE}
 chart2

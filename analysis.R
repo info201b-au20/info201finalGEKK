@@ -46,9 +46,11 @@ killings_df1 <- killings_df1 %>%
 chart2 <- ggplot(killings_df1, aes(x = factor(1), y=total_deaths,fill=races))+
   geom_col(position = 'stack', 
            show.legend = T) +
+  geom_text(aes(label = paste(total_deaths)), 
+            position = position_stack(vjust = .50)) +
   coord_polar(theta = "y") +
   theme_void() +
-  labs(title = "Total deaths of individuals in each race")
+  labs(title = "Total Deaths of Individuals in Each Race from Random Major U.S. Cities, 2013-2018")
 
 ###
 
