@@ -35,3 +35,4 @@ summary_info$highest_annual_arrests <- mpvdata %>%
 summary_info$nation_police_killings <- mpvdata %>%
   filter(City == "Nationwide Average") %>%
   pull(All.People.Killed.by.Police..1.1.2013.12.31.2019.)
+
