@@ -6,6 +6,5 @@ library(dplyr)
 
 grouped <- df %>%
   group_by(Victim.s.race)
-  Summarize(Victim.s.age)
 View(grouped)
 #pull(grouped)
