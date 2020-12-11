@@ -16,7 +16,8 @@ intro_page <- tabPanel("Introduction",
                          of police brutality and killings to find out about trends of police killings over time, who (what groups) have been the main victims of police homicides,
                          and where police brutality is more prominent in the United States. "),
                          img(src='https://img.onmanorama.com/content/dam/mm/en/news/world/images/2020/6/3/george-floyd-protests-3.jpg', height="75%", width="75%"),
-                         h4("This Shiny App was created collaboratively by: Katherine Poch, Eivy Cedeno, Kennett Vera, Garsin Zhan")
+                         h4("This Shiny App was created collaboratively by: Katherine Poch, Eivy Cedeno, Kennett Vera, Garsin Zhan"),
+                         p("We explored Police Homicide Data Sets from: ", a("https://mappingpoliceviolence.org"))
                        )
 )
 
