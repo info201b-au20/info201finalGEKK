@@ -18,5 +18,8 @@ mpvdata2_longer <- mpvdata2_longer[-(1:24),] #too many rows, delete
 ggplot(mpvdata2_longer,aes(City, value, fill = rate)) +
   geom_col(position ="dodge") +
   coord_flip() +
-  labs(
-    title = "Police Homicide Rate vs. Violent Crime Rate in Random Major U.S. Cities, 2013-2018")
+  labs(title = "Police Homicide Rate vs. Violent Crime Rate in Random Major U.S. Cities, 2013-2018", y = "Rate") +
+  scale_fill_manual(name = "Rate", 
+                    values = c("purple","green"),
+                    breaks = c("Avg.Annual.Police.Homicide.Rate", "Violent.Crime.Rate"),
+                    labels = c("Avg Annual Police Homicide Rate", "Violent Crime Rate"))

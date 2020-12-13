@@ -31,8 +31,8 @@ server <- function(input, output){
                         labels = c("Avg Annual Police Homicide Rate", "Violent Crime Rate"))
     ggplotly(plot1)
   })
-  charged <- table(police_kill_df$Criminal.Charges.)
-  a <-as.data.frame(charged)
+  charged <- table(police_kill_df$Criminal.Charges.) 
+  a <-as.data.frame(charged)  #dataset
   output$distPlot <- renderPlot({
     a <- subset(a, a$Var1 == input$whereAt)
     plot(a) 
@@ -53,6 +53,17 @@ server <- function(input, output){
       threshold = 1000    # basically a search radius. set this big enough 
       # to show at least one point per click
     )
+  })
+  output$allcities <- renderPlotly({
+  plot1a <- ggplot(mpvdata2_longer,aes(City, value, fill = rate)) +
+    geom_col(position ="dodge") +
+    coord_flip() +
+    labs(title = "Police Homicide Rate vs. Violent Crime Rate in Random Major U.S. Cities, 2013-2018", y = "Rate") +
+    scale_fill_manual(name = "Rate", 
+                      values = c("purple","green"),
+                      breaks = c("Avg.Annual.Police.Homicide.Rate", "Violent.Crime.Rate"),
+                      labels = c("Avg Annual Police Homicide Rate", "Violent Crime Rate"))
+  ggplotly(plot1a)
   })
 }
 
