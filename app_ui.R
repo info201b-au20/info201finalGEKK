@@ -6,7 +6,7 @@ library(plotly)
 
 intro_page <- tabPanel("Introduction",
                        mainPanel(
-                         h2("Introduction"),
+                         h1("Introduction"),
                          p("Police violence and homicide in the United States
                          have been linked to persisting systemic racism and
                          implicit bias against people of color.
@@ -22,7 +22,7 @@ intro_page <- tabPanel("Introduction",
                          States, how often police officers get convicted of
                          police homicide and how often police officers use their bodycams."),
                          img(src='https://img.onmanorama.com/content/dam/mm/en/news/world/images/2020/6/3/george-floyd-protests-3.jpg', height="75%", width="75%"),
-                         h4("This Shiny App was created collaboratively by: Katherine Poch, Eivy Cedeno, Kennett Vera, Garsin Zhan"),
+                         h4("This Shiny App was created collaboratively by: Katherine Poch and Eivy Cedeno"),
                          p("We explored Police Homicide Data Sets from: ", a("https://mappingpoliceviolence.org"))
                        )
 )
@@ -45,7 +45,7 @@ location_page <- tabPanel("Police Homicide Rate vs. Violent Crime Rate",
                               )),
                       
                             mainPanel(
-                              h2("Where is Police Brutality More or Less Prominent? "),
+                              h1("Where is Police Brutality More or Less Prominent? "),
                               h3("Purpose"),
                               p("The purpose of this chart is to see the comparison
                                 between average rates of violent crimes and average
@@ -106,13 +106,14 @@ page_two <- tabPanel(
 page_twee <- tabPanel(
   "interactive visualization page",	#title of the page, what will appear as the tab name
 
-  titlePanel("Do police officers film?"),
+  
   sidebarLayout(
     sidebarPanel(
       selectInput("where", "select a state", choices = police_kill_df$State)
     ),
     
-    mainPanel(
+    mainPanel( 
+      h1("Do Police Officers Film?"),
       plotOutput("Data")
     )
   )
@@ -120,7 +121,7 @@ page_twee <- tabPanel(
 
 conclusion <- tabPanel("Conclusion",
                        mainPanel(
-                         h2("Conclusion"),
+                         h1("Conclusion"),
                          p("The Police Homicide Rate vs. Violent Crime Rate charts
                          show disparity of values between different locations, which
                          reveals that the levels of violent crimes in the U.S.
@@ -141,6 +142,7 @@ conclusion <- tabPanel("Conclusion",
 )
 
 ui <- fluidPage(
+  includeCSS("style.css"),
   navbarPage(
     inverse = TRUE,
     "Police Brutality",

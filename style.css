@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+body{
+    background-color: #fcd02c
+  }
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+}
+p {
+  font-family: 'Libre Baskerville', serif;
+}
+h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 600;
+}
+
+h4 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 500;
+}
+h5 {
+  font-family: 'Libre Baskerville', serif;
+}
