@@ -22,7 +22,7 @@ intro_page <- tabPanel("Introduction",
                          States, how often police officers get convicted of
                          police homicide and how often police officers use their bodycams."),
                          img(src='https://img.onmanorama.com/content/dam/mm/en/news/world/images/2020/6/3/george-floyd-protests-3.jpg', height="75%", width="75%"),
-                         h4("This Shiny App was created collaboratively by: Katherine Poch, Eivy Cedeno, Kennett Vera"),
+                         h4("This Shiny App was created collaboratively by: Katherine Poch, Eivy Cedeno, Kennett Vera, Garsin Zhan"),
                          p("We explored Police Homicide Data Sets from: ", a("https://mappingpoliceviolence.org"))
                        )
 )
