@@ -44,7 +44,8 @@ server <- function(input, output){
     plot(table(stateFilter$Body.Camera..Source..WaPo.))
   })
 
-  output$plot <- renderPlot({ggplot(a, aes(Var1, Freq)) + geom_point()})
+  output$plot <- renderPlot({ggplot(a, aes(Var1, Freq)) + geom_point() +
+      theme(axis.text.x=element_text(angle = -90, hjust = 0))})
   output$print = renderPrint({
     nearPoints(
       mtcars,             # the plotting data

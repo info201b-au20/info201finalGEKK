@@ -21,9 +21,10 @@ intro_page <- tabPanel("Introduction",
                          where police brutality is more prominent in the United
                          States, how often police officers get convicted of
                          police homicide and how often police officers use their bodycams."),
+                         p("We explored Police Homicide Data Sets from: ", a("https://mappingpoliceviolence.org"),
                          img(src='https://img.onmanorama.com/content/dam/mm/en/news/world/images/2020/6/3/george-floyd-protests-3.jpg', height="75%", width="75%"),
                          h4("This Shiny App was created collaboratively by: Katherine Poch and Eivy Cedeno"),
-                         p("We explored Police Homicide Data Sets from: ", a("https://mappingpoliceviolence.org"))
+                         )
                        )
 )
 
@@ -104,12 +105,13 @@ page_two <- tabPanel(
     )
   ))
 page_twee <- tabPanel(
-  "interactive visualization page",	#title of the page, what will appear as the tab name
+  "Police Body Cam Usage",	#title of the page, what will appear as the tab name
 
   
   sidebarLayout(
     sidebarPanel(
-      selectInput("where", "select a state", choices = police_kill_df$State)
+      selectInput("where", "select a state", choices = police_kill_df$State,
+                  selected = "KY")
     ),
     
     mainPanel( 
@@ -129,9 +131,17 @@ conclusion <- tabPanel("Conclusion",
                          there are cities with unnecessary high levels of police
                          violence that are likely targeting minorities. "),
                          plotlyOutput("allcities"),
-                         p("In our Police Homcide Charges plots, we see barely
+                         p("In our Police Homicide Charges plots, we see barely
                            any police officers charged for their murder, revealing
-                           the abuse of power the police department has executed."),
+                           the abuse of power the police department has executed.
+                           In our Police Body Cam Usage plots, we see many police
+                           departments in different states partake in not using
+                           their cameras, therefore allowing them to commit excessive
+                           force, violence, or homicide during arrests without
+                           consequences. The body cam video footage is a valuable
+                           source of evidence that can be used in court, however,
+                           if the police do not turn on their cameras, it is shows
+                           an act of abuse of power."),
                          p("We explored Police Homicide Data Sets from: ", a("https://mappingpoliceviolence.org")),
                          h4("Overall, we hope our audience has gained much insight and
                          learned a lot about the issue of Police Violence in the
