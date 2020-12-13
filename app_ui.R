@@ -59,8 +59,57 @@ location_page <- tabPanel("Police Homicide Rate vs. Violent Crime Rate",
                             )
                           )
                           )
+# Eivy
+page_two <- tabPanel(
+  "interactive visualization page",	#title of the page, what will appear as the tab name
+  
+  sidebarLayout(
+    
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+      
+      # Input: Slider for the number of bins ----
+      selectInput("whereAt", 
+                  "select a country", 
+                  choices = a$Var1)
+      
+    ),
+    
+    # Main panel for displaying outputs ----
+    mainPanel(
+      h1("Do officers get charged for killing a person?"),
+      
+      h4("After a death caused by a police officer there is not much we can do
+         for the victim. Raising awareness and praying for the family isn't good
+         enough or fair. What really helps is knowing that the officer has been
+         charged for the actions commited. Most times the police get away with 
+         killing a person without any consequences and this causes them to continue."),
+      h4("In the chart below we can see the number of charged police officers 
+         up to no known charges."),
+      # Output: Histogram ----
+      plotOutput("distPlot"),
+      plotOutput("plot"),
+      h5("As you can see, compared to the number of no known charges, basically 
+      little to no police get charged after their murder. We have to think about
+      the abuse of power that they have and whether killing a person should have 
+      exceptions on the penalties for police.")
+      
+    )
+  ))
+page_twee <- tabPanel(
+  "interactive visualization page",	#title of the page, what will appear as the tab name
 
-
+  titlePanel("Do police officers film?"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("where", "select a state", choices = police_kill_df$State)
+    ),
+    
+    mainPanel(
+      plotOutput("Data")
+    )
+  )
+)
 
 
 
@@ -69,6 +118,6 @@ ui <- fluidPage(
     inverse = TRUE,
     "Police Brutality",
     intro_page,
-    location_page))
+    location_page,page_two,page_twee))
 
 

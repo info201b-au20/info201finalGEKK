@@ -2,9 +2,11 @@ library(shiny)
 library(tidyverse)
 library(ggplot2)
 library(plotly)
+library(dplyr)
 
 ###### Plot 1: police homicide rate vs violent crime rate data set ##############
 mpvdata <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv")
+police_kill_df <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv")
 library(tidyverse)
 #Order dataset by population size
 mpvdata <- mpvdata %>% arrange(desc(Total))
@@ -29,4 +31,28 @@ server <- function(input, output){
                         labels = c("Avg Annual Police Homicide Rate", "Violent Crime Rate"))
     ggplotly(plot1)
   })
+  charged <- table(police_kill_df$Criminal.Charges.)
+  a <-as.data.frame(charged)
+  output$distPlot <- renderPlot({
+    a <- subset(a, a$Var1 == input$whereAt)
+    plot(a) 
+    
+  })
+
+  output$Data <- renderPlot({
+    stateFilter <- subset(police_kill_df, police_kill_df$State == input$where)
+    plot(table(stateFilter$Body.Camera..Source..WaPo.))
+  })
+
+  output$plot <- renderPlot({ggplot(a, aes(Var1, Freq)) + geom_point()})
+  output$print = renderPrint({
+    nearPoints(
+      mtcars,             # the plotting data
+      input$plot_click,   # input variable to get the x/y coordinates from
+      maxpoints = 1,      # only show the single nearest point 
+      threshold = 1000    # basically a search radius. set this big enough 
+      # to show at least one point per click
+    )
+  })
 }
+
