@@ -2,8 +2,26 @@ library(shiny)
 library(tidyverse)
 library(ggplot2)
 library(plotly)
+library(dplyr)
+library(r2d3)
+###### Plot 1: police homicide rate vs violent crime rate data set ##############
+mpvdata <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv")
+police_kill_df <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv")
+library(tidyverse)
+#Order dataset by population size
+mpvdata <- mpvdata %>% arrange(desc(Total))
+mpvdata1 <- mpvdata[-(103:106),] #take out N/A rows
+mpvdata2 <- mpvdata1[-(31:94),] #take out lowest population rows
+mpvdata2_longer <- mpvdata2 %>% pivot_longer(
+  cols = c(Avg.Annual.Police.Homicide.Rate, Violent.Crime.Rate),
+  names_to = "rate"
+)
+mpvdata2_longer <- mpvdata2_longer %>% subset(select = c(City, value, rate))
+mpvdata2_longer <- mpvdata2_longer[-(1:24),] #too many rows, delete
+###############################################################################
 
-
+charged <- table(police_kill_df$Criminal.Charges.) 
+a <-as.data.frame(charged)  #dataset2
 intro_page <- tabPanel("Introduction",
                        mainPanel(
                          h1("Introduction"),
