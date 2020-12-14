@@ -133,7 +133,7 @@ page_twee <- tabPanel(
       h1("Do Police Officers Film?"),
       h4("One of the strongest pieces of solid evidence is a film. The police 
          are constantly using statement of their life being in dangered but 
-         how do we know that forsure if we can't see what happened?"),
+         how do we know that for sure if we can't see what happened?"),
       plotOutput("Data")
     )
   )
