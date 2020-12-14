@@ -70,29 +70,26 @@ location_page <- tabPanel("Police Homicide Rate vs. Violent Crime Rate",
 # Eivy
 page_two <- tabPanel(
   "Police Homicide Charges",	#title of the page, what will appear as the tab name
-  
   sidebarLayout(
-    
     # Sidebar panel for inputs ----
     sidebarPanel(
-      
       # Input: Slider for the number of bins ----
       selectInput("whereAt", 
                   "select a country", 
                   choices = a$Var1)
-      
     ),
     
     # Main panel for displaying outputs ----
     mainPanel(
       h1("Do officers get charged for killing a person?"),
       
-      h4("After a death caused by a police officer there is not much we can do
+      p("After a death caused by a police officer there is not much we can do
          for the victim. Raising awareness and praying for the family isn't good
          enough or fair. What really helps is knowing that the officer has been
          charged for the actions commited. Most times the police get away with 
          killing a person without any consequences and this causes them to continue."),
-      h4("In the chart below we can see the number of charged police officers 
+      h3("Conclusion"),
+      p("In the chart below we can see the number of charged police officers 
          up to no known charges."),
       # Output: Histogram ----
       plotOutput("distPlot"),
@@ -116,6 +113,9 @@ page_twee <- tabPanel(
     
     mainPanel( 
       h1("Do Police Officers Film?"),
+      h4("One of the strongest pieces of solid evidence is a film. The police 
+         are constantly using statement of their life being in dangered but 
+         how do we know that forsure if we can't see what happened?"),
       plotOutput("Data")
     )
   )
