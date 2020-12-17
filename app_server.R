@@ -44,10 +44,17 @@ server <- function(input, output){
   
   output$Data <- renderPlot({
     yao <- as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.== input$where))
-    ggplot( yao, aes( x = Freq, y=Var1, fill=Freq ) ) + geom_bar( stat="identity", position="dodge" ) + ylab( "Occurances" ) + ggtitle( "Police killings Survailance Activity" )
+    ggplot( yao, aes( x = Freq, y=Var1, fill=Freq ) ) + geom_bar( stat="identity", position="dodge" ) + ylab( "Survailance" ) + ggtitle( "Police killings Survailance By State" )
   })
   output$tab <- renderTable({
     as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.))
+  })
+  
+  op1 <- reactive({
+    chartstate %>% filter(Var2==input$donde)
+  })  
+  output$Data2 <- renderPlot({
+    ggplot(op1(), aes( x = Freq, y=Var1, fill=Freq ) ) + geom_bar( stat="identity", position="dodge" ) + ylab( "Occurances" ) + ggtitle( "Police killings Survailance Activity" )
   })
   
   output$allcities <- renderPlotly({

@@ -146,8 +146,17 @@ page_twee <- tabPanel(
         "There have been", nrow(police_kill_df),"deaths by police brutality since
         2013"
         )
+    ),
+  ),
+  sidebarLayout(
+    selectInput("donde", "Select State", choices = chartstate$Var2),
+    mainPanel(
+              h4("Survailance by State"),
+              p("It is important to see which states are the ones not recording,
+                in this chart you are able to select a specific state."),
+              plotOutput("Data2")
     )
-  )
+)
 )
 
 conclusion <- tabPanel("Conclusion",
