@@ -125,7 +125,8 @@ page_twee <- tabPanel(
   
   sidebarLayout(
     sidebarPanel(
-      selectInput("where", "select a state", choices = police_kill_df$Body.Camera..Source..WaPo.)
+      selectInput("where", "Have the police brutalities been filmed in past 7 
+                  years? Select answer.", choices = police_kill_df$Body.Camera..Source..WaPo.)
     ),
     
     mainPanel( 
@@ -140,7 +141,11 @@ page_twee <- tabPanel(
       p("In the vast majority of police brutalities there was no video survailance.
          Survailance is not only important to prove if there was a valid cause 
          but also becuase it sends a stronger message seeing rather than just 
-        hearing about it.")
+        hearing about it.",
+        tableOutput("tab"),
+        "There have been", nrow(police_kill_df),"deaths by police brutality since
+        2013"
+        )
     )
   )
 )

@@ -46,7 +46,10 @@ server <- function(input, output){
     yao <- as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.== input$where))
     ggplot( yao, aes( x = Freq, y=Var1, fill=Freq ) ) + geom_bar( stat="identity", position="dodge" ) + ylab( "Occurances" ) + ggtitle( "Police killings Survailance Activity" )
   })
-
+  output$tab <- renderTable({
+    as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.))
+  })
+  
   output$allcities <- renderPlotly({
   plot1a <- ggplot(mpvdata2_longer,aes(City, value, fill = rate)) +
     geom_col(position ="dodge") +
@@ -59,4 +62,3 @@ server <- function(input, output){
   ggplotly(plot1a)
   })
 }
-
