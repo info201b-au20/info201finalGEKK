@@ -3,7 +3,8 @@ library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(dplyr)
-library(r2d3)
+
+devtools::install_github("rstudio/r2d3")
 ###### Plot 1: police homicide rate vs violent crime rate data set ##############
 mpvdata <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv")
 police_kill_df <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv")
@@ -38,25 +39,13 @@ server <- function(input, output){
     plot(a) 
     
   })
-
-  output$Data <- renderPlot({
-    stateFilter <- subset(police_kill_df, police_kill_df$State == input$where)
-    plot(table(stateFilter$Body.Camera..Source..WaPo.))
-  })
-  output$test <- renderPlot({
-    police_kill_df %>%
-      group_by(Body.Camera..Source..WaPo.) %>%
-      tally() %>%
-      arrange(desc(n)) %>%
-      mutate(
-        y = n,
-        ylabel = prettyNum(n, big.mark = ","),
-        fill = "#E69F00",
-        mouseover = "#0072B2"
-      )
-})
   output$plot <- renderPlot({ggplot(a, aes(Var1, Freq)) + geom_point() +
       theme(axis.text.x=element_text(angle = -90, hjust = 0))})
+  
+  output$Data <- renderPlot({
+    yao <- as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.== input$where))
+    ggplot( yao, aes( x = Freq, y=Var1, fill=Freq ) ) + geom_bar( stat="identity", position="dodge" ) + ylab( "Occurances" ) + ggtitle( "Police killings Survailance Activity" )
+  })
 
   output$allcities <- renderPlotly({
   plot1a <- ggplot(mpvdata2_longer,aes(City, value, fill = rate)) +

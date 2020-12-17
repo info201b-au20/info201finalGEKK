@@ -3,7 +3,7 @@ library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(dplyr)
-library(r2d3)
+
 ###### Plot 1: police homicide rate vs violent crime rate data set ##############
 mpvdata <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv")
 police_kill_df <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv")
@@ -125,16 +125,22 @@ page_twee <- tabPanel(
   
   sidebarLayout(
     sidebarPanel(
-      selectInput("where", "select a state", choices = police_kill_df$State,
-                  selected = "KY")
+      selectInput("where", "select a state", choices = police_kill_df$Body.Camera..Source..WaPo.)
     ),
     
     mainPanel( 
       h1("Do Police Officers Film?"),
-      h4("One of the strongest pieces of solid evidence is a film. The police 
-         are constantly using statement of their life being in dangered but 
-         how do we know that for sure if we can't see what happened?"),
-      plotOutput("Data")
+      p("One of the strongest pieces of solid evidence is a film. The police 
+         are constantly using the statement of their life being in dangered as an 
+         excuse but how do we know that for sure if we can't see what happened? 
+         In the plot below you are able to interact with how much of the deaths 
+         where recorded by state, beneith that we see a whole view scale of all
+        the states."),
+      plotOutput("Data"),
+      p("In the vast majority of police brutalities there was no video survailance.
+         Survailance is not only important to prove if there was a valid cause 
+         but also becuase it sends a stronger message seeing rather than just 
+        hearing about it.")
     )
   )
 )
