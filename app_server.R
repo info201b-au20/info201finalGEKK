@@ -3,8 +3,8 @@ library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(dplyr)
+library(r2d3)
 
-devtools::install_github("rstudio/r2d3")
 ###### Plot 1: police homicide rate vs violent crime rate data set ##############
 mpvdata <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv")
 police_kill_df <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv")
@@ -20,6 +20,7 @@ mpvdata2_longer <- mpvdata2 %>% pivot_longer(
 mpvdata2_longer <- mpvdata2_longer %>% subset(select = c(City, value, rate))
 mpvdata2_longer <- mpvdata2_longer[-(1:24),] #too many rows, delete
 ###############################################################################
+chartstate <- as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.,police_kill_df$State))
 
 server <- function(input, output){
   output$locationchart <- renderPlotly({

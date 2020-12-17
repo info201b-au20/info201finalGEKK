@@ -4,6 +4,7 @@ library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(dplyr)
+library(r2d3)
 
 source("app_ui.R")
 source("app_server.R")

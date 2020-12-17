@@ -3,7 +3,7 @@ library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(dplyr)
-
+library(r2d3)
 ###### Plot 1: police homicide rate vs violent crime rate data set ##############
 mpvdata <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2019%20Killings%20by%20PD-Table%201.csv")
 police_kill_df <- read.csv("https://raw.githubusercontent.com/info201b-au20/info201finalGEKK/gh-pages/2013-2020%20Police%20Killings-Table%201.csv")
@@ -22,6 +22,7 @@ mpvdata2_longer <- mpvdata2_longer[-(1:24),] #too many rows, delete
 
 charged <- table(police_kill_df$Criminal.Charges.) 
 a <-as.data.frame(charged)  #dataset2
+chartstate <- as.data.frame(table(police_kill_df$Body.Camera..Source..WaPo.,police_kill_df$State))
 intro_page <- tabPanel("Introduction",
                        mainPanel(
                          h1("Introduction"),
@@ -149,7 +150,7 @@ page_twee <- tabPanel(
     ),
   ),
   sidebarLayout(
-    selectInput("donde", "Select State", choices = chartstate$Var2),
+    selectInput("donde", "Select State", choices = chartstate$Var2, selected = "WA"),
     mainPanel(
               h4("Survailance by State"),
               p("It is important to see which states are the ones not recording,
